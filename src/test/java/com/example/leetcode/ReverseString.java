@@ -1,32 +1,29 @@
 package com.example.leetcode;
 
 import java.util.Arrays;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ReverseString {
 
     public static void main(String[] args) {
         char[] s = new char[]{'h','e','l','l','o'};
-//        int [] nums = new int[]{-3,4,3,90};
         int target = 6;
         reverseString(s);
+        assertThat(s).containsExactly('o', 'l', 'l', 'e', 'h');
+
     }
 
 
     public static void reverseString(char[] s) {
         int lf = 0;
-        int rf = s.length-1;
-        while(lf<rf){
-            char lfTmp = s[lf];
-            char rfTmp = s[rf];
-            char tmp = ' ';
-            tmp = rfTmp;
-            s[rf] = lfTmp;
+        int rt = s.length-1;
+        while(lf<rt){
+            char tmp = s[rt];
+            s[rt] = s[lf];
             s[lf] = tmp;
             lf++;
-            rf--;
+            rt--;
         }
-
-        System.out.println(Arrays.toString(s));
     }
 
 }

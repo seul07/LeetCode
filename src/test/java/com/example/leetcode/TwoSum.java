@@ -1,18 +1,18 @@
 package com.example.leetcode;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class TwoSum {
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         int [] nums = new int[]{3,3};
 //        int [] nums = new int[]{-3,4,3,90};
         int target = 6;
-        int[] result = twoSum(nums,target);
-        for(int n : result){
-            System.out.println(n);
-        }
+        twoSum(nums,target);
+
     }
 
-    public static int[] twoSum(int[] nums, int target) {
+    public void twoSum(int[] nums, int target) {
         int[] result = new int[2];
         for(int i=0 ; i<nums.length-1 ; i++) {
             for(int j=i+1; j<nums.length;j++){
@@ -23,7 +23,7 @@ public class TwoSum {
                 }
             }
         }
-        return result;
+        assertThat(result).containsExactly(6);
     }
 
 
